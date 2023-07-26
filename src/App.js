@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Layout } from "antd";
+import { Provider } from "react-redux";
+import store from "./store";
+import Header from "./Components/Header";
+import Sidebar from "./Components/Sidebar";
+import Map from "./Components/Map";
+import FormInput from "./Components/FormInput";
+import RegionInfo from "./Components/RegionInfo";
 
-function App() {
+const { Content, Footer } = Layout;
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Layout style={{ minHeight: "100vh" }}>
+        <Sidebar />
+        <Layout className="site-layout">
+          <Header />
+          <Content style={{ position: "relative" }}>
+            <FormInput />
+            <Map />
+            <RegionInfo />
+          </Content>
+          <Footer style={{ textAlign: "center" }}>
+            Copyright Shubhangi Jadhav 2023
+          </Footer>
+        </Layout>
+      </Layout>
+    </Provider>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,9 @@
+.header-root {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.btn-logout {
+    margin-right: 5px;
+}
